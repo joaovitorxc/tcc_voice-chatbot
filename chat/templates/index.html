@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Tradutor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box">
+            {% if texto_usuario %}
+                <div class="message user">
+                    {{ texto_usuario }}
+                </div>
+            {% endif %}
+            {% if traducao %}
+                <div class="message bot">
+                    {{ traducao }}
+                </div>
+            {% endif %}
+        </div>
+
+        <form method="POST" class="input-form">
+            <input type="text" name="texto" placeholder="Digite sua mensagem..." required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
